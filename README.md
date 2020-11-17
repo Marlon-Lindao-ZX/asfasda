@@ -1,104 +1,51 @@
-# TALLER UNIDAD 2
+# TALLER UNIDAD 2 Y 3
 
-Se desea realizar una aplicación para el manejo de garages. Para empezar va a modelar el manejo de los garages y los carros que puede acoger.
+Ud va a empezar a desarrollar una aplicación para el manejo de un album de fotos.  Para empezar realice lo siguiente:
 
-Desarrolle en Java las siguientes clases:
+Parte1:
+1. Crear la clase Fotografia de acuerdo al diagrama de clases mostrado en la figura.
+2. Crear dos constructores para la clase Fotografia.  
+    - El primer constructor recibirá como parámetros el nombre y ubicacion.  El valor por defecto para el tamaño será 200
+    - El segundo constructor recibirá como parámetros nombre, ubicacion, tamano y asignará los valores a su atributo correspondiente.
+3. Escribir el método toString para mostrar toda la información de la foto
+4. Escribir el get para cada atributo.
 
+Parte2: Completar la clase Main.java de acuerdo al diagrama.  Esta clase sería como el album de fotos
+1. Escribir el constructor sin parámetros que crea el arraylist fotos;
+2. Escribir el método consultarFoto(String nombre) que consulta el arraylist fotos para retornar el objeto Fotografia cuyo nombre coincide exactamente con el nombre recibido en el parámetro.
+3. Escribir el método consultarFoto(int tam) que consulta el arraylist fotos para retornar un arraylist de objetos Fotografia cuyo tamaño es menor o igual al tamaño recibido en el parámetro.
+4. En el método main crear 3 objetos de la clase Fotografia con la información de la tabla siguiente. Almacenar los 3 objetos en el arraylist fotos
 
-### Clase Carro:
-Atributos privados:
-- matrícula.  Identificador del carro.  Tipo  de dato String
-- clave. Clave para desbloquear el carro. Tipo de dato int
+| Nombre  | Ubicacion   | Tamaño   | 
+|---|---|---|
+| Carnet  | C://Pictures  |  200 |
+| PaseoFeriado  |   C://Pictures | 400  |
+| Cumpleaños  |  C://Pictures  | 900  |
 
-Constructor
-- Constructor con los parámetros para los dos atributos
+5. Realizar el proceso de consulta de fotos
+- Consulta1: Solicitar el ingreso del nombre de la foto.  Deberá utilizar el método consultarFoto apropiado para mostrar información de la foto si es que existe o el mensaje “No hay foto con ese nombre” en caso contrario.
+- Consulta2: Solicitar un tamaño a consultar.  Deberá utilizar el método consultarFoto apropiado para mostrar información de las fotos con tamaño menor o igual al ingresado o el mensaje “No hay fotos con ese tamaño” si no se encontraron fotos.
 
-Métodos
-- getters para todos sus atributos
-
-### Clase Garage:
-
-Atributos privados:
-
-- El nombre. Nombre del garage. Tipo  de dato String
-- La capacidad. La cantidad de carros máxima que puede albergar. Tipo de dato int
-- Puestos libres. La cantidad de puestos que están disponibles en el garage.  Tipo de dato int
-
-Constructores:
-- Constructor con parámetro para el nombre.  Este constructor asigna además el valor de 20 a la capacidad y los puestos libres. 
-- Constructor con parámetros nombre y capacidad.  Este constructor asigna los valores a los atributos respectivos y al atributo puestos libres el valor de capacidad.
-
-Métodos
-- getters para todos sus atributos
-- parquearCarro. Ubica un carro en el garage. Este método tiene como parámetro un objeto de tipo Carro. Este método debe verificar si el garage tiene un puesto para el carro que se va a parquear. Si hay puesto libre modifica el atributo de los puestos libres disminuyendo su valor en 1, imprime el mensaje "Parqueando carro <MATRICULA>".(Ver ejemplo de salida) y retorna  **true**, caso contrario retorna  **false**
-
-**NOTA: Ubique las clases Carro y Garage en el paquete modelo**
-
-### Clase Main:
-Desarrollar en el método main lo siguiente
-- Cree dos objetos de tipo Garage.  Un objeto con el constructor que recibe el nombre y otro objeto con el constructor que recibe dos atributos. Asigne los valores que ud. desee a los atributos del garage.
-- Simule el proceso de parquear carros en el garage(Seleccione el objeto de tipo Garage que prefiera)
-  - Genere un número aleatorio entre 1 y la capacidad del garage + 5 para indicar cuántos carros va a parquear.
-  * Use el número aleatorio para realizar iteraciones para la creación de objetos tipo Carro.  
-  * En cada iteración:
-    - Pida al usuario la matricula y la clave del carro y cree el objeto.  
-    - Llame al método parquearCarro del garage elegido usando el objeto de tipo Carro creado.  Si el carro no se pudo parquear en el garage imprima el mensaje "Garage sin lugares libres" y termine la iteración.
-  * Presente la información del garage 
-
-_Nota: Asuma que el usuario va a ingresar los datos en el formato esperado.  No olvide incluir comentarios_
-
-_Ejemplo de ejecución en la que no se pueden parquear todos los carros_
+_Ejemplo de salida exitoso_
 ```
-Cantidad de carros a parquear:7
-Ingrese matricula del carro:GNW-1234
-Ingrese clave del carro:1234
-Parqueando carro GNW-1234
-Ingrese matricula del carro:GNW-2345
-Ingrese clave del carro:2341
-Parqueando carro GNW-2345
-Ingrese matricula del carro:GNW-1256
-Ingrese clave del carro:6435
-Parqueando carro GNW-1256
-Ingrese matricula del carro:GNW-5453
-Ingrese clave del carro:6333 
-Garage sin lugares libres
-
-Información del garage utilizado
-Nombre: Malecon Colon
-Capacidad: 3
-Disponibles: 0
-
+Consulta 1
+Ingrese nombre de foto a consultar:Carnet   
+Foto encontrada:
+Fotografia: nombre= Carnet, ubicacion= C://Pictures, tamano= 200
+Consulta 2
+Ingrese tamano a consultar:500
+Fotos encontradas:
+Fotografia: nombre= Carnet, ubicacion= C://Pictures, tamano= 200
+Fotografia: nombre= PaseoFeriado, ubicacion= C://Pictures, tamano= 400
 ```
-_Ejemplo de ejecución que completa las iteraciones_
-
+_Ejemplo de salida sin resultados_
 ```
-Cantidad de carros a parquear:8
-Ingrese matricula del carro:GNW-3245
-Ingrese clave del carro:3245  
-Parqueando carro GNW-3245
-Ingrese matricula del carro:GNW-3433
-Ingrese clave del carro:4322      
-Parqueando carro GNW-3433
-Ingrese matricula del carro:GNX-3432
-Ingrese clave del carro:3221
-Parqueando carro GNX-3432
-Ingrese matricula del carro:GNS-3243
-Ingrese clave del carro:3215
-Parqueando carro GNS-3243
-Ingrese matricula del carro:GMU-4323
-Ingrese clave del carro:5325
-Parqueando carro GMU-4323
-Ingrese matricula del carro:PEW-3432
-Ingrese clave del carro:4323
-Parqueando carro PEW-3432
-Ingrese matricula del carro:GEW-3243
-Ingrese clave del carro:3433
-Parqueando carro GEW-3243
-Ingrese matricula del carro:GTU-3243
-Ingrese clave del carro:4333
-Parqueando carro GTU-3243
-Información del garage utilizado
-Nombre: Malecon Colon
-Capacidad: 10
-Disponibles: 2
+Consulta 1
+Ingrese nombre de foto a consultar:Viaje
+No hay foto con ese nombre
+Consulta 2
+Ingrese tamano a consultar:100
+No hay fotos con ese tamano
+```
+
 ```
